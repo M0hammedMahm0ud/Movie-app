@@ -47,6 +47,22 @@ export default function Home() {
       setMovies(filtered);
     }
   };
+  function highlightText(text, highlight) {
+    if (!highlight.trim()) return text;
+
+    const regex = new RegExp(`(${highlight})`, "gi"); // match case-insensitive
+    const parts = text.split(regex);
+
+    return parts.map((part, i) =>
+      regex.test(part) ? (
+        <span key={i} style={{ backgroundColor: "yellow", fontWeight: "bold" }}>
+          {part}
+        </span>
+      ) : (
+        part
+      )
+    );
+  }
 
   const renderMovies =
     movies.length > 0 ? (
@@ -60,7 +76,7 @@ export default function Home() {
             />
           </div>
           <div>
-            <p>{movieItem.title}</p>
+            <p>{highlightText(movieItem.title, inputVal)}</p>
             <p>Released date: {movieItem.release_date}</p>
             <p>Rating: {movieItem.vote_average.toFixed(1)}</p>
             <p>Overview: {movieItem.overview}</p>
@@ -73,6 +89,7 @@ export default function Home() {
           textAlign: "center",
           fontWeight: "bold",
           fontSize: "2.5rem",
+          minHeight: "60vh",
         }}
       >
         Movie not found
