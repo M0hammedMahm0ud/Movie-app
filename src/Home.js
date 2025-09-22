@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaGithub } from "react-icons/fa";
 
 export default function Home() {
   const [allMovies, setAllMovies] = useState([]);
@@ -61,13 +62,21 @@ export default function Home() {
           <div>
             <p>{movieItem.title}</p>
             <p>Released date: {movieItem.release_date}</p>
-            <p>Rating: {movieItem.vote_average}</p>
+            <p>Rating: {movieItem.vote_average.toFixed(1)}</p>
             <p>Overview: {movieItem.overview}</p>
           </div>
         </div>
       ))
     ) : (
-      <p>Movie not found</p>
+      <p
+        style={{
+          textAlign: "center",
+          fontWeight: "bold",
+          fontSize: "2.5rem",
+        }}
+      >
+        Movie not found
+      </p>
     );
 
   return (
@@ -80,10 +89,22 @@ export default function Home() {
           type="text"
           value={inputVal}
           onChange={handleInputChange}
+          id="movieName"
         />
         <button onClick={handleSearch}>Search</button>
       </div>
       <div>{renderMovies}</div>
+      <footer>
+        By :{" "}
+        <a
+          href="https://github.com/M0hammedMahm0ud"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Mohammed Mahmoud Ali
+          <FaGithub style={{ marginLeft: "6px", verticalAlign: "middle" }} />
+        </a>
+      </footer>
     </div>
   );
 }

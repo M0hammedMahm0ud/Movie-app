@@ -46,7 +46,7 @@ small {
   align-items: center;
   gap: 10px;
   margin-bottom: 30px;
-  flex-wrap: wrap; /* allows wrapping on small screens */
+  flex-wrap: wrap;
 }
 
 .search-container label {
@@ -128,7 +128,27 @@ small {
   font-size: 1.4rem;
   color: #666;
 }
+footer {
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #555;
+  border-top: 1px solid #ddd;
+}
 
+footer a {
+  color: #6b6b6b;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #212122;
+  text-decoration: underline;
+}
+
+/* RESPONSIVENESS */
 @media (max-width: 768px) {
   .title {
     font-size: 3.2rem;
