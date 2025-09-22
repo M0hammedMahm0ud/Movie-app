@@ -46,6 +46,7 @@ small {
   align-items: center;
   gap: 10px;
   margin-bottom: 30px;
+  flex-wrap: wrap; /* allows wrapping on small screens */
 }
 
 .search-container label {
@@ -56,6 +57,7 @@ small {
 
 .search-container input {
   flex: 1;
+  min-width: 220px;
   max-width: 600px;
   padding: 10px 15px;
   border-radius: 25px;
@@ -95,6 +97,11 @@ small {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   align-items: flex-start;
   max-width: 900px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
 }
 
 .card img {
@@ -120,4 +127,69 @@ small {
 .card p:nth-child(3) {
   font-size: 1.4rem;
   color: #666;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 3.2rem;
+  }
+
+  .card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .card img {
+    width: 200px;
+  }
+
+  .search-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .search-container input {
+    max-width: 100%;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  html {
+    font-size: 9px;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .card img {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .card p:first-child {
+    font-size: 1.8rem;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+
+  .search-container input {
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 8px 12px;
+  }
+
+  .search-container button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.4rem;
+  }
 }
