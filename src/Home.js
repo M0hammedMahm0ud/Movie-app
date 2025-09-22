@@ -21,19 +21,6 @@ export default function Home() {
     getMovies();
   }, []);
 
-  const handleSearch = () => {
-    if (inputVal.trim() === "") {
-      setMovies(allMovies);
-      return;
-    }
-
-    const newList = allMovies.filter((mitem) =>
-      mitem.title?.toLowerCase().includes(inputVal.toLowerCase())
-    );
-
-    setMovies(newList);
-  };
-
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInputVal(value);
@@ -103,15 +90,15 @@ export default function Home() {
     <div className="container">
       <h1 className="title">React Movie Search</h1>
       <div className="search-container">
-        <label htmlFor="movieName">Movie name: </label>
+        <label htmlFor="movieName">Movie name : </label>
         <input
           name="movieName"
           type="text"
           value={inputVal}
           onChange={handleInputChange}
+          placeholder="Enter Movie name"
           id="movieName"
         />
-        <button onClick={handleSearch}>Search</button>
       </div>
       <div>{renderMovies}</div>
       <footer>
