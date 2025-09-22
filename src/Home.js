@@ -55,7 +55,10 @@ export default function Home() {
 
     return parts.map((part, i) =>
       regex.test(part) ? (
-        <span key={i} style={{ backgroundColor: "yellow", fontWeight: "bold" }}>
+        <span
+          key={i}
+          style={{ backgroundColor: "#FFFF66	", fontWeight: "bold" }}
+        >
           {part}
         </span>
       ) : (
